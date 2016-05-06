@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Apple Maps-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="mapKitVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9JI-Cd-8WX">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            </mapView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-RQ-HdF">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hy7-5E-Cdh"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" id="5EU-dV-VKc">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Re-zX-ivx">
+                                            <rect key="frame" x="20" y="7" width="37" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Done"/>
+                                            <connections>
+                                                <action selector="doneClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2wA-Jz-RLl"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EEv-bY-V9C"/>
+                                    <barButtonItem style="plain" id="Pwq-5V-b2A">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="Kws-OW-5A3">
+                                            <rect key="frame" x="368" y="6.5" width="212" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Standard"/>
+                                                <segment title="Hybrid"/>
+                                                <segment title="Sattelite"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="setMap:" destination="BYZ-38-t0r" eventType="valueChanged" id="Pdu-Rb-FWm"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Bxm-YP-Kav">
+                                <rect key="frame" x="0.0" y="66" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="HHq-Bs-vhc"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kxH-9v-awl">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="mGd-Hq-o0U"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="MapKit" id="qLh-1d-u02"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eu6-RQ-HdF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="8UG-xm-Z3d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eu6-RQ-HdF" secondAttribute="bottom" id="A4q-KH-fsr"/>
+                            <constraint firstItem="eu6-RQ-HdF" firstAttribute="top" secondItem="9JI-Cd-8WX" secondAttribute="bottom" id="J67-Tx-BWI"/>
+                            <constraint firstItem="9JI-Cd-8WX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MxZ-oa-TlN"/>
+                            <constraint firstItem="Bxm-YP-Kav" firstAttribute="top" secondItem="kxH-9v-awl" secondAttribute="bottom" id="PV5-uq-zv9"/>
+                            <constraint firstItem="kxH-9v-awl" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="SaG-n5-cyn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Bxm-YP-Kav" secondAttribute="trailing" constant="-20" id="Ucj-lG-TgR"/>
+                            <constraint firstItem="kxH-9v-awl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="fsv-MI-XRB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9JI-Cd-8WX" secondAttribute="trailing" constant="-20" id="ntX-PE-HNr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kxH-9v-awl" secondAttribute="trailing" constant="-20" id="pm8-oL-hs4"/>
+                            <constraint firstItem="Bxm-YP-Kav" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="qhj-LA-xIf"/>
+                            <constraint firstItem="9JI-Cd-8WX" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="tJ5-kx-l9w"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eu6-RQ-HdF" secondAttribute="trailing" constant="-20" id="zBi-eF-bd9"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Apple Maps" id="Jbp-Rj-ySo"/>
+                    <connections>
+                        <outlet property="doneButton" destination="5Re-zX-ivx" id="9Og-PB-nFe"/>
+                        <outlet property="mapView" destination="9JI-Cd-8WX" id="uQI-q0-Oxf"/>
+                        <outlet property="searchBar" destination="Bxm-YP-Kav" id="wQ6-rA-LYt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="359"/>
+        </scene>
+    </scenes>
+</document>
